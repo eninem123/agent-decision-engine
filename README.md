@@ -2,15 +2,30 @@
 
 通用业务规则引擎 + 多Agent协作框架，从量化交易系统抽象而来。
 
-## 核心模块
+## 🚀 在线演示
+
+**[→ 库存预警引擎在线Demo](https://www.aialter.site/resume/decision-engine/)**
+
+打开即用，纯前端本地计算，数据不上传。
+
+![库存预警引擎](demo-screenshot.png)
+
+## 架构
 
 ```
-decision-engine/
-├── data_layer/          # 实时数据采集+清洗管道
-├── decision_layer/      # 规则引擎 + 异常检测
-├── agent_collab/        # 多AI协作编排
-├── execution_layer/     # 自动化执行 + 风控拦截
-└── examples/            # 场景化demo
+┌─────────────────────────────────────────┐
+│           execution_layer               │
+│     自动化执行 + 风控拦截 + 审计日志      │
+├─────────────────────────────────────────┤
+│           agent_collab                  │
+│   多AI协作编排 + 消息队列 + 任务分发      │
+├─────────────────────────────────────────┤
+│           decision_layer                │
+│     规则引擎 + 异常检测 + Regime判断      │
+├─────────────────────────────────────────┤
+│           data_layer                    │
+│     实时数据采集 + 清洗 + 标准化          │
+└─────────────────────────────────────────┘
 ```
 
 ## 架构来源
@@ -21,7 +36,9 @@ decision-engine/
 - 3个AI Agent协作框架（消息队列任务分发）
 - 自动化交易执行系统（风控拦截+日志审计+回测验证）
 
-## 通用化场景
+**该架构已在A股实时交易场景连续运行并验证，现泛化为通用业务决策引擎。**
+
+## 场景示例
 
 | 场景 | 规则引擎 | 数据层 | 执行层 |
 |------|---------|--------|--------|
@@ -33,8 +50,9 @@ decision-engine/
 ## 快速开始
 
 ```bash
-cd decision-engine
-python3 -m examples.stock_demo
+git clone git@github.com:eninem123/agent-decision-engine.git
+cd agent-decision-engine
+python3 examples/stock_demo.py
 ```
 
 ## License
