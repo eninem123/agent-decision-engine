@@ -5,3 +5,10 @@ __pycache__
 *.egg-info
 dist
 build
+
+# 核心代码不上传（保留README+ARCHITECTURE+demo作为展示）
+decision_layer/
+data_layer/
+agent_collab/
+execution_layer/
+__init__.py
